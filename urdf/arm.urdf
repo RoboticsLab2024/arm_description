@@ -1,6 +1,11 @@
 <?xml version="1.0"?>
 
-<robot name="arm">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="arm">
+
+  <material name="red">
+    <color rgba="1 0 0 1"/>
+  </material>
+
 
   <link name="base_link">
     <visual>
@@ -8,6 +13,7 @@
         <mesh filename="package://arm_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="red"/>
     </visual>
     <collision>
       <geometry>
@@ -33,6 +39,7 @@
         <mesh filename="package://arm_description/meshes/base_turn.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="red"/>
     </visual>
     <collision>
       <geometry>
@@ -45,7 +52,7 @@
       <inertia ixx="1.35223008e+07" ixy="0.0" ixz="0.0" iyy="8.13814925e+06" iyz="0.0" izz="2.14903814e+07"/>
     </inertial>
   </link>
-  
+ 
   <joint name="j0" type="revolute">
     <parent link="base_turn"/>
     <child link="base_turn_rot"/>
@@ -59,7 +66,7 @@
       <geometry>
         <mesh filename="package://arm_description/meshes/base_turn_table_rot.stl" scale="0.001 0.001 0.001"/>
       </geometry>
-    
+      <material name="red"/>
     </visual>
     <collision>
       <geometry>
@@ -70,7 +77,7 @@
     
     <inertial>
       <mass value="0.1"/>
-      <inertia ixx="3.41992001e+06" ixy="0.0" ixz="0.0" iyy="2.85587836e+06" iyz="0.0" izz="5.84313870e+06"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
     </inertial>
   </link>
   
@@ -96,7 +103,7 @@
     </collision>
      <inertial>
       <mass value="0.1"/>
-      <inertia ixx="6.90013881e+01" ixy="0.0" ixz="0.0" iyy="1.24554875e+02" iyz="0.0" izz="1.04295793e+02"/>
+      <inertia ixx="6.90013881e-05" ixy="0.0" ixz="0.0" iyy="1.24554875e-04" iyz="0.0" izz="1.04295793e-04"/>
     </inertial>
   </link>
   
@@ -124,9 +131,7 @@
         <mesh filename="package://arm_description/meshes/f4_n_f3.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
-      <material name="white">
-        <color rgba="1 1 1 1"/>
-      </material>
+      <material name="red"/>
     </visual>
     <collision>
       <geometry>
@@ -136,7 +141,7 @@
     </collision>
      <inertial>
       <mass value="0.1"/>
-      <inertia ixx="6.90013881e+01" ixy="0.0" ixz="0.0" iyy="1.24554875e+02" iyz="0.0" izz="1.04295793e+02"/>
+      <inertia ixx="6.90013881e-05" ixy="0.0" ixz="0.0" iyy="1.24554875e-04" iyz="0.0" izz="1.04295793e-04"/>
     </inertial>
   </link>
   
@@ -161,7 +166,7 @@
     </collision>
      <inertial>
       <mass value="0.1"/>
-      <inertia ixx="6.90013881e+01" ixy="0.0" ixz="0.0" iyy="1.24554875e+02" iyz="0.0" izz="1.04295793e+02"/>
+      <inertia ixx="6.90013881e-05" ixy="0.0" ixz="0.0" iyy="1.24554875e-04" iyz="0.0" izz="1.04295793e-04"/>
     </inertial>
   </link>
   
@@ -173,8 +178,8 @@
     <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
   </joint>
   
-  <link name="dyn3_r">
-    
+ <link name="dyn3_r">
+
   </link>
   
   <joint name="dyn3_f5" type="fixed">
@@ -189,9 +194,7 @@
         <mesh filename="package://arm_description/meshes/f4_n_f3.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
-      <material name="white">
-        <color rgba="1 1 1 1"/>
-      </material>
+      <material name="red"/>
     </visual>
     <collision>
       <geometry>
@@ -202,15 +205,14 @@
     
     <inertial>
       <mass value="0.1"/>
-      <inertia ixx="1.13130695e+07" ixy="0.0" ixz="0.0" iyy="8.78052401e+06" iyz="0.0" izz="1.72940286e+07"/>
-    </inertial>
+  <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>    </inertial>
   </link>
   
   <joint name="f5_dyn4" type="fixed">
     <parent link="f5"/>
     <child link="dyn4"/>
     <origin xyz="-0.004 0.065 -0.0" rpy="-1.57 3.1415 1.57 "/>
-  </joint>
+  </joint> 
   
   <link name="dyn4">
     <visual>
@@ -229,7 +231,7 @@
     
     <inertial>
       <mass value="0.1"/>
-      <inertia ixx="6.90013881e+01" ixy="0.0" ixz="0.0" iyy="1.24554875e+02" iyz="0.0" izz="1.04295793e+02"/>
+      <inertia ixx="6.90013881e-05" ixy="0.0" ixz="0.0" iyy="1.24554875e-04" iyz="0.0" izz="1.04295793e-04"/>
     </inertial>
   </link>
   
@@ -257,9 +259,7 @@
         <mesh filename="package://arm_description/meshes/wrist.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
-      <material name="white">
-        <color rgba="1 1 1 1"/>
-      </material>
+      <material name="red"/>
     </visual>
     <collision>
       <geometry>
@@ -270,7 +270,7 @@
     
      <inertial>
       <mass value="0.1"/>
-      <inertia ixx="6.90013881e+01" ixy="0.0" ixz="0.0" iyy="1.24554875e+02" iyz="0.0" izz="1.04295793e+02"/>
+      <inertia ixx="6.90013881e-05" ixy="0.0" ixz="0.0" iyy="1.24554875e-04" iyz="0.0" izz="1.04295793e-04"/>
     </inertial>
   </link>
   
@@ -296,7 +296,7 @@
     
     <inertial>
       <mass value="0.1"/>
-      <inertia ixx="6.90013881e+01" ixy="0.0" ixz="0.0" iyy="1.24554875e+02" iyz="0.0" izz="1.04295793e+02"/>
+      <inertia ixx="6.90013881e-05" ixy="0.0" ixz="0.0" iyy="1.24554875e-04" iyz="0.0" izz="1.04295793e-04"/>
     </inertial>
   </link>
  
@@ -324,9 +324,7 @@
         <mesh filename="package://arm_description/meshes/the_crawer_base.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <origin rpy="0 0 0" xyz="0 0 0"/>
-      <material name="white">
-        <color rgba="1 1 1 1"/>
-      </material>
+      <material name="red"/>
     </visual>
     <collision>
       <geometry>
@@ -337,7 +335,7 @@
     
     <inertial>
       <mass value="0.1"/>
-      <inertia ixx="6.90013881e+01" ixy="0.0" ixz="0.0" iyy="1.24554875e+02" iyz="0.0" izz="1.04295793e+02"/>
+      <inertia ixx="6.90013881e-05" ixy="0.0" ixz="0.0" iyy="1.24554875e-04" iyz="0.0" izz="1.04295793e-04"/>
     </inertial>
   </link>
     
@@ -366,7 +364,7 @@
     
     <inertial>
       <mass value="0.1"/>
-      <inertia ixx="6.90013881e+01" ixy="0.0" ixz="0.0" iyy="1.24554875e+02" iyz="0.0" izz="1.04295793e+02"/>
+      <inertia ixx="6.90013881e-05" ixy="0.0" ixz="0.0" iyy="1.24554875e-04" iyz="0.0" izz="1.04295793e-04"/>
     </inertial>
   </link>
   
@@ -396,61 +394,8 @@
     
     <inertial>
       <mass value="0.1"/>
-      <inertia ixx="6.90013881e+01" ixy="0.0" ixz="0.0" iyy="1.24554875e+02" iyz="0.0" izz="1.04295793e+02"/>
+      <inertia ixx="6.90013881e-05" ixy="0.0" ixz="0.0" iyy="1.24554875e-04" iyz="0.0" izz="1.04295793e-04"/>
     </inertial>
   </link>
-
-
-  <gazebo reference="f4">
-    <material>Gazebo/Red</material>
-  </gazebo>
-
-  <gazebo reference="f5">
-    <material>Gazebo/Red</material>
-  </gazebo>
-
-  <gazebo reference="wrist">
-    <material>Gazebo/Red</material>
-  </gazebo>
-
-  <gazebo reference="crawer_base">
-    <material>Gazebo/Red</material>
-  </gazebo>
-
-  <gazebo reference="base_link">
-    <material>Gazebo/Red</material>
-  </gazebo>
-
-  <gazebo reference="base_turn">
-    <material>Gazebo/Red</material>
-  </gazebo>
-
-  <gazebo reference="base_turn_rot">
-    <material>Gazebo/Red</material>
-  </gazebo>
-   
-  <gazebo reference="dyn2">
-    <material>Gazebo/Black</material>
-  </gazebo>
   
-  <gazebo reference="dyn3">
-    <material>Gazebo/Black</material>
-  </gazebo>
-  
-  <gazebo reference="dyn4">
-    <material>Gazebo/Black</material>
-  </gazebo>
-  
-  <gazebo reference="dyn5">
-    <material>Gazebo/Black</material>
-  </gazebo>
-    
-  <gazebo reference="crawer_left">
-    <material>Gazebo/Red</material>
-  </gazebo>
-  
-  <gazebo reference="crawer_right">
-    <material>Gazebo/Red</material>
-  </gazebo>   
-   
 </robot>
