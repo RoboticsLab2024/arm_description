@@ -1,5 +1,7 @@
 <?xml version="1.0"?>
 
+<robot name="arm">
+
   <material name="red">
     <color rgba="1 0 0 1"/>
   </material>
